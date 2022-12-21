@@ -40,7 +40,7 @@ export default function DropdDown(props) {
 
 
 
-    axios.post("http://localhost:3000/stocks", 
+    axios.post(`http://${import.meta.env.VITE_BACKEND_URL}/stocks`, 
     {
       symbol: props.symbol,
       shares: shareNumber

@@ -57,13 +57,13 @@ export default function Portfolio() {
   const getStockQuotes = () => {
 
     Promise.all([
-      axios.get(`http://localhost:3000/portfolio`, {
+      axios.get(`http://${import.meta.env.VITE_BACKEND_URL}/portfolio`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem('authToken')}`
         }
       }),
       axios
-      .get(`http://localhost:3000/api/stocks/all`, {
+      .get(`http://${import.meta.env.VITE_BACKEND_URL}/api/stocks/all`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },

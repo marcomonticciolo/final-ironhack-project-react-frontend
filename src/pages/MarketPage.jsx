@@ -24,7 +24,7 @@ export default function Markets() {
 
   const getStockQuotes = () => {
     axios
-      .get(`http://localhost:3000/api/stocks/all`, {
+      .get(`http://${import.meta.env.VITE_BACKEND_URL}/api/stocks/all`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("authToken")}`,
         }

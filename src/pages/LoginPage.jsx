@@ -23,7 +23,7 @@ export default function Login() {
 
     const handleFormSubmit = e => {
         e.preventDefault()
-        axios.post('http://localhost:3000/auth/login', state)
+        axios.post(`http://${import.meta.env.VITE_BACKEND_URL}/auth/login`, state)
         .then(axiosResponse => {
             storeToken(axiosResponse.data.authToken)
             authenticateUser();
