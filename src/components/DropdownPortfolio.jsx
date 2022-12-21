@@ -1,11 +1,12 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import Searchbox from './SearchBox'
+import { useState } from 'react'
+
 
 const solutions = [
   { name: 'Amount of shares'},
-
+  
 ]
 
 function classNames(...classes) {
@@ -13,6 +14,11 @@ function classNames(...classes) {
 }
 
 export default function DropdDownPortfolio() {
+  
+  const [shareNumber, setShareNumber] = useState(0) 
+  
+  
+
   return (
     <Popover className="relative">
       {({ open }) => (
@@ -44,7 +50,18 @@ export default function DropdDownPortfolio() {
                       className="-m-3 rounded-md p-3 transition duration-150 ease-in-out hover:bg-gray-50"
                     >
                       <p className="text-base font-medium text-gray-900">{item.name}</p>
-                      <Searchbox />
+                      <div>
+        <input
+          type="number"
+          value={shareNumber}
+          onChange={(e) => setShareNumber(e.target.value)}
+          name="number"
+          id="number"
+          min={0}
+          className="block w-full rounded-md mt-3 border-gray-300 shadow-sm focus:border-black focus:ring-black sm:text-sm"
+          placeholder='Ex 100'
+          />
+      </div>
                     </a>
                   ))}
                   <button className='bg-black text-white hover:bg-gray-800 py-3 rounded-lg'>Sell Shares</button>

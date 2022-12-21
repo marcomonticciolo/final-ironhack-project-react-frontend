@@ -122,23 +122,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({active}) => (
                           <p className=
-                          "block px-4 py-2 text-sm"> Welcome {user.username}</p>
-                        )}
-                      </Menu.Item>
-                      )}
-                        {isLoggedIn && (
-                      
-                      <Menu.Item>
-                        {({active}) => (
-                        <button
-                        onClick={logoutUser}
-                        className={classNames(
-                          active ? "bg-gray-100" : "",
-                          "block px-4 py-2 text-sm text-gray-700"
-                        )}
-                      >
-                        Log out
-                      </button>
+                          "block px-4 py-2 text-md"> Welcome {user.username}</p>
                         )}
                       </Menu.Item>
                       )}
@@ -147,7 +131,7 @@ export default function Navbar() {
                           <button
                             onClick={profilePageButton}
                             className={classNames(
-                              active ? "bg-gray-100" : "",
+                              active ? "font-semibold" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
@@ -160,7 +144,7 @@ export default function Navbar() {
                           <button
                             onClick={signInButton}
                             className={classNames(
-                              active ? "bg-gray-100" : "",
+                              active ? "font-semibold" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
@@ -168,12 +152,14 @@ export default function Navbar() {
                           </button>
                         )}
                       </Menu.Item>
+                      {isLoggedIn && (
+                      
                       <Menu.Item>
                         {({active}) => (
                         <button
                         onClick={logoutUser}
                         className={classNames(
-                          active ? "bg-gray-100" : "",
+                          active ? "hover:text-red-700" : "",
                           "block px-4 py-2 text-sm text-gray-700"
                         )}
                       >
@@ -181,6 +167,7 @@ export default function Navbar() {
                       </button>
                         )}
                       </Menu.Item>
+                      )}
                     </Menu.Items>
                   </Transition>
                 </Menu>

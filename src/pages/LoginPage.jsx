@@ -25,7 +25,6 @@ export default function Login() {
         e.preventDefault()
         axios.post('http://localhost:3000/auth/login', state)
         .then(axiosResponse => {
-            console.log(axiosResponse.data)
             storeToken(axiosResponse.data.authToken)
             authenticateUser();
            navigate('/')
@@ -45,7 +44,7 @@ export default function Login() {
                 <div className="mt-6">
                   <form className="space-y-6" onSubmit={handleFormSubmit}>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                      <label htmlFor="username" className="block text-sm font-medium text-gray-700">
                         Username
                       </label>
                       <div className="mt-1">

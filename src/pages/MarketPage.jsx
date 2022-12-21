@@ -2,18 +2,24 @@ import SearchBar from "../components/SearchBar";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import DropdDown from "../components/DropdownMaket";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function Markets() {
-
   
   const [stocks, setStocks] = useState([]);
+  
   const [filteredStocks, setFilteredStocks] = useState([]);
 
-  const [visible, setVisible] = useState(100);
+  const [visible, setVisible] = useState(50);
 
   const showMoreItems = () => {
-    setVisible((prevValue) => prevValue + 100);
+    setVisible((prevValue) => prevValue + 50);
   };
+
+  const alphabeticalStocks = [...filteredStocks].sort((a, b) =>
+    a.s > b.s ? 1 : -1,
+  );
 
 
   const getStockQuotes = () => {
@@ -101,7 +107,7 @@ export default function Markets() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                  {filteredStocks?.slice(0, visible).map((allStocks) => (
+                  {alphabeticalStocks.sort().slice(0, visible).map((allStocks) => (
                     <tr key={allStocks.s} className="divide-x divide-gray-200">
                       <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-bold sm:pl-6">
                         {allStocks.s}
@@ -120,7 +126,7 @@ export default function Markets() {
                       </td>
                       <td className="whitespace-wrap py-4 pl-4  text-sm  sm:pr-3">
                         <span className="flex justify-center ">
-                          <DropdDown />
+                          <DropdDown symbol={allStocks.s}/>
                         </span>
                       </td>
                     </tr>

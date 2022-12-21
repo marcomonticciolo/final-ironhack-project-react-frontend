@@ -1,4 +1,5 @@
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
+import axios from 'axios';
 
 const stats = [
   { name: 'Balance', stat: '1,000,000$', previousStat: '1,000,000$', change: '0%', changeType: 'increase' },
@@ -11,6 +12,8 @@ function classNames(...classes) {
 }
 
 export default function Stats() {
+
+
   return (
     <div className='mt-3 mb-8'>
       <h3 className="text-lg font-medium leading-6 text-gray-900">24 Hour Change %</h3>

@@ -1,5 +1,5 @@
-import { useState,useEffect, createContext } from "react";
-import axios  from "axios";
+import { useState, useEffect, createContext } from "react";
+import axios from "axios";
 const API_URL = "http://localhost:3000";
 
 const AuthContext = createContext()
@@ -13,7 +13,7 @@ function AuthProviderWrapper(props){
     const storeToken = token => {
         localStorage.setItem('authToken', token)
     }
-    const authenticateUser = () => {      
+    const authenticateUser = () => {  
 
         const storedToken = localStorage.getItem('authToken');
         
@@ -24,16 +24,13 @@ function AuthProviderWrapper(props){
             { headers: { Authorization: `Bearer ${storedToken}`} }
           )
           .then((response) => {
-
-            const user = response.data;
-     
             setIsLoggedIn(true);
             setIsLoading(false);
-            setUser(user);        
+            setUser(response.data); 
+            localStorage.setItem('thisUser', response.data)       
           })
           .catch((error) => {
-
-    
+            console.log("There has been an auth error:", error)
             setIsLoggedIn(false);
             setIsLoading(false);
             setUser(null);        
