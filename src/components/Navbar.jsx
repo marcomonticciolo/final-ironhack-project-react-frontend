@@ -19,6 +19,10 @@ export default function Navbar() {
 
   const navigate = useNavigate();
 
+  const home = () => {
+    navigate("/");
+  };
+
   const market = () => {
     navigate("/markets");
   };
@@ -60,9 +64,23 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
+                      <>
+                     <button
+                            key={item.Market}
+                            onClick={market}
+                            className={classNames(
+                              item.current
+                                ? " text-white"
+                                : "text-gray-300 hover:bg-white hover:ring-white  hover:text-black",
+                              "px-3 py-2 rounded-md text-sm font-medium"
+                            )}
+                            aria-current={item.current ? "page" : undefined}
+                          >
+                            {item.Market}
+                       </button>
                       <button
-                        key={item.name}
-                        onClick={market}
+                        key={item.Home}
+                        onClick={home}
                         className={classNames(
                           item.current
                             ? " text-white"
@@ -71,8 +89,9 @@ export default function Navbar() {
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
-                        {item.name}
+                        {item.Home}
                       </button>
+                      </>
                     ))}
                   </div>
                 </div>
