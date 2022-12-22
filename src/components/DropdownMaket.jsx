@@ -40,7 +40,7 @@ export default function DropdDown(props) {
 
 
 
-    axios.post(`http://${import.meta.env.VITE_BACKEND_URL}/stocks`, 
+    axios.post(`${import.meta.env.VITE_BACKEND_URL}/stocks`, 
     {
       symbol: props.symbol,
       shares: shareNumber
@@ -53,8 +53,8 @@ export default function DropdDown(props) {
 
   return (
 
-    <>
-    {isLoggedIn && (
+
+
     
     <Popover className="relative">
       
@@ -136,8 +136,10 @@ export default function DropdDown(props) {
         </>
       )}
       </Popover>
-      )}
-        </>
+
+
       )
     }
+    
+
     

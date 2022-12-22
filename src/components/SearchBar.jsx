@@ -3,7 +3,7 @@ export default function SearchBar(props) {
   
 
     return (
-      <div className="mt-5">
+      <div className="mt-5 ">
         <label htmlFor="search" className="block text-sm font-medium text-gray-700" >
           Search Stock Symbols:
         </label>

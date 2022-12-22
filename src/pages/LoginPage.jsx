@@ -23,7 +23,11 @@ export default function Login() {
 
     const handleFormSubmit = e => {
         e.preventDefault()
-        axios.post(`http://${import.meta.env.VITE_BACKEND_URL}/auth/login`, state)
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/login`, state,{
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          }
+        })
         .then(axiosResponse => {
             storeToken(axiosResponse.data.authToken)
             authenticateUser();

@@ -24,7 +24,7 @@ export default function Signup() {
   const handleFormSubmit = e => {
       console.log("THIS IS STATE", state)
       e.preventDefault()
-      axios.post(`http://${import.meta.env.VITE_BACKEND_URL}/auth/signup`, state)
+      axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, state)
       .then(axiosResponse => {
          navigate('/login')
       })

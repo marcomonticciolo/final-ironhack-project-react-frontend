@@ -1,10 +1,12 @@
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
 import axios from 'axios';
+import { useState } from 'react';
 
 const stats = [
   { name: 'Balance', stat: '1,000,000$', previousStat: '1,000,000$', change: '0%', changeType: 'increase' },
   { name: 'Open P&L', stat: '58.16%', previousStat: '56.14%', change: '2.02%', changeType: 'increase' },
   { name: 'Top performer', stat: 'AAPL', previousStat: '28.62%', change: '4.05%', changeType: 'decrease' },
+  
 ]
 
 function classNames(...classes) {
@@ -12,6 +14,25 @@ function classNames(...classes) {
 }
 
 export default function Stats() {
+
+  const [portfolio, setPortfolio] = useState([]);
+
+
+
+  const getPortfolioData = () => {
+
+  axios.get(`${import.meta.env.VITE_BACKEND_URL}/portfolio`, {
+    headers: {
+      authorization: `Bearer ${localStorage.getItem('authToken')}`
+    }
+  })
+  .then((axiosResponse) => {
+    setPortfolio(axiosResponse);
+    console.log(axiosResponse)
+  })
+  .catch((err) => console.log(err));
+
+}
 
 
   return (

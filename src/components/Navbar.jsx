@@ -5,41 +5,35 @@ import { AuthContext } from "../context/context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "Market", href: "/markets", current: false },
-  { name: "Portfolio", href: "/portfolio", current: false },
-
- 
 ];
 
 function classNames(...classes) {
-
-  
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
-
   const { user, isLoggedIn, logoutUser } = useContext(AuthContext);
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
 
   const myHoldings = () => {
-    navigate('/portfolio')
-  }
+    navigate("/portfolio");
+  };
 
   const signUpButton = () => {
-    navigate('/signup')
-  }
+    navigate("/signup");
+  };
 
   const signInButton = () => {
-    navigate('/login')
-  }
+    navigate("/login");
+  };
 
   const profilePageButton = () => {
-    navigate('/profilePage')
-  }
+    navigate("/profilePage");
+  };
 
   return (
     <Disclosure as="nav" className="bg-black">
@@ -76,20 +70,14 @@ export default function Navbar() {
                         {item.name}
                       </a>
                     ))}
-                    
-
                   </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
-                  
                   <div>
-                    
-                
                     <Menu.Button className="flex rounded-full  text-sm  ring-2 hover:ring-white  ring-offset-2 ring-black  ring-offset-black">
-                      
                       <span className="sr-only">Open user menu</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -116,64 +104,104 @@ export default function Navbar() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    {isLoggedIn && (
-                      
-                      <Menu.Item>
-                        {({active}) => (
-                          <p className=
-                          "block px-4 py-2 text-md"> Welcome {user.username}</p>
-                        )}
-                      </Menu.Item>
-                      )}
-                      <Menu.Item>
-                        {({ active }) => (
-                          <button
-                            onClick={profilePageButton}
-                            className={classNames(
-                              active ? "font-semibold" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Your Profile
-                          </button>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <button
-                            onClick={signInButton}
-                            className={classNames(
-                              active ? "font-semibold" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Sign in 
-                          </button>
-                        )}
-                      </Menu.Item>
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-52 origin-top-right rounded-md  bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       {isLoggedIn && (
-                      
-                      <Menu.Item>
-                        {({active}) => (
-                        <button
-                        onClick={logoutUser}
-                        className={classNames(
-                          active ? "hover:text-red-700" : "",
-                          "block px-4 py-2 text-sm text-gray-700"
-                        )}
-                      >
-                        Log out
-                      </button>
-                        )}
-                      </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <p className="block px-4 py-2 text-md">
+                              {" "}
+                              Welcome {user.username}
+                            </p>
+                          )}
+                        </Menu.Item>
+                      )}
+                      {isLoggedIn && (
+                        <Menu.Item>
+                          {({ active }) => (
+                            <button
+                              onClick={profilePageButton}
+                              className={classNames(
+                                active ? "font-semibold" : "",
+                                "hover:bg-slate-100 block w-full px-4 text-start py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              My Profile
+                            </button>
+                          )}
+                        </Menu.Item>
+                      )}
+                      {isLoggedIn && (
+                        <Menu.Item>
+                          {({ active }) => (
+                            <button
+                              onClick={myHoldings}
+                              className={classNames(
+                                active ? "font-semibold" : "",
+                                "hover:bg-slate-100 block w-full px-4 text-start py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              My Holdings
+                            </button>
+                          )}
+                        </Menu.Item>
+                      )}
+
+                      {!isLoggedIn && (
+                        <Menu.Item>
+                          {({ active }) => (
+                            <button
+                              onClick={signInButton}
+                              className={classNames(
+                                active ? "font-semibold" : "",
+                                "hover:bg-slate-100 text-start block w-full px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Log in
+                            </button>
+                          )}
+                        </Menu.Item>
+                      )}
+
+                      {!isLoggedIn && (
+                        <Menu.Item>
+                          {({ active }) => (
+                            <button
+                              onClick={signUpButton}
+                              className={classNames(
+                                active ? "font-semibold" : "",
+                                "hover:bg-slate-100 text-start md:hidden lg:hidden w-full px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Sign Up
+                            </button>
+                          )}
+                        </Menu.Item>
+                      )}
+
+                      {isLoggedIn && (
+                        <Menu.Item>
+                          {({ active }) => (
+                            <button
+                              onClick={logoutUser}
+                              className={classNames(
+                                active ? "hover:text-red-700" : "",
+                                "hover:bg-slate-100 text-start block w-full px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Log out
+                            </button>
+                          )}
+                        </Menu.Item>
                       )}
                     </Menu.Items>
                   </Transition>
                 </Menu>
-                <button className="bg-white py-2 px-4 rounded-full ml-3" onClick={signUpButton}>
-                    Sign up
-                      </button>
+                <button
+                  className="bg-white transition hidden md:block hover:scale-110 hover:bg-gray-100 py-2 px-4 rounded-full ml-3"
+                  onClick={signUpButton}
+                >
+                  Sign up
+                </button>
               </div>
             </div>
           </div>
