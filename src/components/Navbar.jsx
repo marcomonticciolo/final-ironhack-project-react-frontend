@@ -63,8 +63,7 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <Link
-                        to={item.href}
+                      <button
                         key={item.name}
                         className={classNames(
                           item.current
@@ -74,8 +73,8 @@ export default function Navbar() {
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
-                        <p>{item.name}</p>
-                      </Link>
+                        <Link to={item.href}>{item.name}</Link>
+                      </button>
                       
                     ))}
                   </div>
