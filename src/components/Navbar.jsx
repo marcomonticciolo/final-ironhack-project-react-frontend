@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "Market", href: "/markets", current: true },
+  { name: "Home", link: "/", current: true },
+  { name: "Market", link: "/markets", current: true },
 ];
 
 function classNames(...classes) {
@@ -73,7 +73,7 @@ export default function Navbar() {
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
-                        <Link to={item.href}>{item.name}</Link>
+                        <Link to={item.link}>{item.name}</Link>
                       </button>
                       
                     ))}
