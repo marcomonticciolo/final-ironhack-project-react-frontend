@@ -109,7 +109,6 @@ export default function Portfolio() {
           <p className="mt-2 text-sm text-gray-700">
           Holdings are the contents of an investment portfolio held by an individual or an entity, such as a mutual fund or a pension fund. Portfolio holdings may encompass a wide range of investment products, including stocks, bonds, mutual funds, options, futures, and exchange traded funds (ETFs).
           </p>
-          <SearchBar stocks={stocks} setFilteredStocks={setFilteredStocks} />
         </div>
       </div>
       <div className="mt-8 flex flex-col">

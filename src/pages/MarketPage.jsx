@@ -158,7 +158,7 @@ export default function Markets() {
                       {isLoggedIn && (
                         <td className="whitespace-wrap py-4 pl-4  text-sm  sm:pr-3">
                         <span className="flex justify-center ">
-                          <DropdDown symbol={allStocks.s}/>
+                          <DropdDown symbol={allStocks.s} />
                         </span>
                       </td>
                         )}

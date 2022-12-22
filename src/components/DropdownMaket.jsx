@@ -107,7 +107,7 @@ export default function DropdDown(props) {
           <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
         </div>
         <div className="ml-3">
-          <p className="text-sm font-medium text-green-800">Successfully Purchased {}</p>
+          <p className="text-sm font-medium text-green-800">Successfully Purchased {props.shares}</p>
         </div>
         <div className="ml-auto pl-3">
           <div className="-mx-1.5 -my-1.5">
@@ -127,6 +127,7 @@ export default function DropdDown(props) {
                   ))}
                   <button
                   onClick={addStock} 
+                  
                   
                   className='bg-black hover:bg-gray-800 text-white py-3 rounded-lg'>Buy Shares</button>
                 </div>

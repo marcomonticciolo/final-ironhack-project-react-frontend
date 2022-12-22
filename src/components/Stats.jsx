@@ -1,5 +1,6 @@
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
 import axios from 'axios';
+import { PromiseProvider } from 'mongoose';
 import { useState } from 'react';
 
 const stats = [
@@ -13,7 +14,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Stats() {
+export default function Stats(props) {
 
   const [portfolio, setPortfolio] = useState([]);
 
@@ -44,7 +45,7 @@ export default function Stats() {
             <dt className="text-lg font-normal text-white">{item.name}</dt>
             <dd className="mt-1 flex items-baseline justify-between md:block lg:flex">
               <div className="flex items-baseline text-2xl font-semibold text-white">
-                {item.stat}
+                {props.balance}
                 <span className="ml-2 text-sm font-medium text-white">from {item.previousStat}</span>
               </div>
 
