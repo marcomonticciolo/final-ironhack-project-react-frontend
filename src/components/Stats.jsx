@@ -2,6 +2,7 @@ import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
 import axios from 'axios';
 import { PromiseProvider } from 'mongoose';
 import { useState } from 'react';
+import mongoose from 'mongoose';
 
 const stats = [
   { name: 'Balance', stat: '1,000,000$', previousStat: '1,000,000$', change: '0%', changeType: 'increase' },
