@@ -19,6 +19,10 @@ export default function Navbar() {
 
   const navigate = useNavigate();
 
+  const market = () => {
+    navigate("/markets");
+  };
+
   const myHoldings = () => {
     navigate("/portfolio");
   };
@@ -56,9 +60,9 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <button
                         key={item.name}
-                        href={item.href}
+                        onClick={market}
                         className={classNames(
                           item.current
                             ? " text-white"
@@ -68,7 +72,7 @@ export default function Navbar() {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </button>
                     ))}
                   </div>
                 </div>
