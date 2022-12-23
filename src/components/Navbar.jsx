@@ -5,6 +5,7 @@ import { AuthContext } from "../context/context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { HomeIcon } from "@heroicons/react/20/solid";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -23,7 +24,7 @@ export default function Navbar() {
 
 
   const market = () => {
-    navigate("/markets");
+    navigate(navigation.href);
   };
 
   const myHoldings = () => {
@@ -65,7 +66,7 @@ export default function Navbar() {
                     {navigation.map((item) => (
                       <button
                         key={item.name}
-                        onClick={item.href}
+                        href={item.href}
                         className={classNames(
                           item.current
                             ? " text-white"
@@ -74,7 +75,7 @@ export default function Navbar() {
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
-                        <Link to={item.href}>{item.name}</Link>
+                      <Link to={item.href}> {item.name}</Link>
                       </button>
                       
                     ))}
@@ -218,7 +219,6 @@ export default function Navbar() {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
                   href={item.href}
                   className={classNames(
                     item.current
@@ -228,7 +228,7 @@ export default function Navbar() {
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >
-                  {item.name}
+                 <Link to={item.href}>{item.name}</Link> 
                 </Disclosure.Button>
               ))}
             </div>
