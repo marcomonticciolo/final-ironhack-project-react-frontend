@@ -69,8 +69,8 @@ export default function Navbar() {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? " text-white"
-                            : "text-gray-300 hover:bg-white hover:ring-white  hover:text-black",
+                            ? " text-white inline-block"
+                            : "text-gray-300 hover:bg-white inline-block hover:ring-white  hover:text-black",
                           "px-3 py-2 rounded-md text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -222,13 +222,13 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? " text-white  hover:bg-white hover:text-black"
-                      : "text-gray-300 hover:bg-white hover:text-black",
+                      ? " text-white  hover:bg-white inline-block w-full text-start hover:text-black"
+                      : "text-gray-300 inline-block w-full text-start hover:bg-white hover:text-black",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >
-                 <Link to={item.href}>{item.name}</Link> 
+                 <Link to={item.href}><button>{item.name}</button></Link> 
                 </Disclosure.Button>
               ))}
             </div>
