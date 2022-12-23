@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "Market", href: "/markets", current: true },
+  { name: "Market", href: "/markets", current: false },
 ];
 
 function classNames(...classes) {
@@ -65,7 +65,7 @@ export default function Navbar() {
                     {navigation.map((item) => (
                       <button
                         key={item.name}
-                        href={item.href}
+                        onClick={item.href}
                         className={classNames(
                           item.current
                             ? " text-white"
