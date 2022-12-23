@@ -19,15 +19,11 @@ export default function DropdDown(props) {
 
   const [shareNumber, setShareNumber] = useState()
 
-  const [showMessage, setShowMessage] = useState()
-
   const { user, isLoggedIn, logoutUser } = useContext(AuthContext);
-
-  const [isOpen, setIsOpen] = useState(true);
  
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  }
+  const navigate = useNavigate();
+
+ 
 
 
 
@@ -47,7 +43,7 @@ export default function DropdDown(props) {
     },
      { headers: { Authorization: `Bearer ${storedToken}`} })
      .then((addedStock) => {
-
+      navigate('/portfolio')
      })
   }    
 
@@ -99,34 +95,11 @@ export default function DropdDown(props) {
           placeholder='Ex: 100'
           />
       </div>
-
-
-    <div className="rounded-md bg-green-50 mt-2 p-4">
-      <div className="flex">
-        <div className="flex-shrink-0">
-          <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
-        </div>
-        <div className="ml-3">
-          <p className="text-sm font-medium text-green-800">Successfully Purchased {props.shares}</p>
-        </div>
-        <div className="ml-auto pl-3">
-          <div className="-mx-1.5 -my-1.5">
-            <button
-              type="button"
-              onClick={togglePopup}
-              className="inline-flex rounded-md bg-green-50 p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50"
-              >
-              <span className="sr-only">Dismiss</span>
-              <XMarkIcon className="h-5 w-5" aria-hidden="true" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
                     </a>
                   ))}
                   <button
                   onClick={addStock} 
+
                   
                   
                   className='bg-black hover:bg-gray-800 text-white py-3 rounded-lg'>Buy Shares</button>

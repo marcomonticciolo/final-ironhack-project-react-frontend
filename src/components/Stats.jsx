@@ -5,8 +5,8 @@ import { useState } from 'react';
 
 const stats = [
   { name: 'Balance', stat: '1,000,000$', previousStat: '1,000,000$', change: '0%', changeType: 'increase' },
-  { name: 'Open P&L', stat: '58.16%', previousStat: '56.14%', change: '2.02%', changeType: 'increase' },
-  { name: 'Top performer', stat: 'AAPL', previousStat: '28.62%', change: '4.05%', changeType: 'decrease' },
+  { name: 'Open P&L', stat: '58.16%', previousStat: '', change: '', changeType: 'increase' },
+  { name: 'Top performer', stat: 'AAPL', previousStat: '', change: '', changeType: 'decrease' },
   
 ]
 

@@ -134,12 +134,6 @@ export default function Portfolio() {
                       scope="col"
                       className="px-4 py-3.5 text-left text-sm font-semibold text-white"
                     >
-                      Average Cost
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-4 py-3.5 text-left text-sm font-semibold text-white"
-                    >
                       paid price
                     </th>
                     <th
@@ -176,9 +170,6 @@ export default function Portfolio() {
                       </td>
                       <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-semibold sm:pl-6">
                         {allStocks.shares} 
-                      </td>
-                      <td className="whitespace-nowrap p-4 text-sm ">
-           
                       </td>
                       <td className="whitespace-nowrap p-4  text-sm ">
                       {allStocks.price} USD   

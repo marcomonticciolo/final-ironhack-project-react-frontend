@@ -21,12 +21,6 @@ export default function Navbar() {
 
   const navigate = useNavigate();
 
-
-
-  const market = () => {
-    navigate(navigation.href);
-  };
-
   const myHoldings = () => {
     navigate("/portfolio");
   };
