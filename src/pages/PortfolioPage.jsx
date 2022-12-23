@@ -11,6 +11,8 @@ export default function Portfolio() {
   const [stocks, setStocks] = useState([]);
   const [filteredStocks, setFilteredStocks] = useState([]);
 
+  const [balance, setBalance] = useState(null)
+
 
   const [visible, setVisible] = useState(10);
 
@@ -67,6 +69,8 @@ export default function Portfolio() {
         .then((result) => {
           console.log(result)
 
+          setBalance(result[0].data.balance.toFixed(2))
+
           const ourStocksFromPortfolio = result[0].data.holdings;
           const stocksFromApi = result[1].data;
 
@@ -100,7 +104,7 @@ export default function Portfolio() {
       
     
       <div className="px-4 mt-10 sm:px-6 lg:px-8">
-      <Stats />
+      <Stats balance={balance} />
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
           <h1 className="text-2xl font-semibold text-gray-900">

@@ -1,12 +1,13 @@
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../context/context'
 
 
 const stats = [
   { name: 'Balance', stat: '1,000,000$', previousStat: '1,000,000$', change: '0%', changeType: 'increase' },
-  { name: 'Open P&L', stat: '58.16%', previousStat: '', change: '', changeType: 'increase' },
-  { name: 'Top performer', stat: 'AAPL', previousStat: '', change: '', changeType: 'decrease' },
+  { name: 'Open P&L', stat:'', previousStat: '0%', change: '0%', changeType: 'increase' },
+  { name: 'Top performer', stat: 'AAPL', previousStat: '0%', change: '0%', changeType: 'increase' },
   
 ]
 
@@ -15,25 +16,6 @@ function classNames(...classes) {
 }
 
 export default function Stats(props) {
-
-  const [portfolio, setPortfolio] = useState([]);
-
-
-
-  const getPortfolioData = () => {
-
-  axios.get(`${import.meta.env.VITE_BACKEND_URL}/portfolio`, {
-    headers: {
-      authorization: `Bearer ${localStorage.getItem('authToken')}`
-    }
-  })
-  .then((axiosResponse) => {
-    setPortfolio(axiosResponse);
-    console.log(axiosResponse)
-  })
-  .catch((err) => console.log(err));
-
-}
 
 
   return (
@@ -45,7 +27,7 @@ export default function Stats(props) {
             <dt className="text-lg font-normal text-white">{item.name}</dt>
             <dd className="mt-1 flex items-baseline justify-between md:block lg:flex">
               <div className="flex items-baseline text-2xl font-semibold text-white">
-                {props.balance}
+                {props.balance}$
                 <span className="ml-2 text-sm font-medium text-white">from {item.previousStat}</span>
               </div>
 

@@ -2,15 +2,15 @@ import { BoltIcon, DevicePhoneMobileIcon, GlobeAltIcon, ScaleIcon } from '@heroi
 
 const features = [
   {
-    name: 'Competitive exchange rates',
+    name: 'Get Ahead',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Identify and fix mistakes before they cost you real money and Increase your confidence in your trading decisions!',
     icon: GlobeAltIcon,
   },
   {
-    name: 'No hidden fees',
+    name: 'No Time Wasted',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Understand the psychology of trading & use our platform as a learning tool for educational purposes',
     icon: ScaleIcon,
   },
   {
